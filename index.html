@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mybench · Bench instruments for the NI myDAQ</title>
+<meta name="description" content="Free bench instruments for the NI myDAQ: oscilloscope, waveform generator, Bode and spectrum analyzers, multimeter and more. macOS, Windows and Linux. No NI software needed.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F4F5F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17181B" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://mybench.spunwave.com/">
+<meta property="og:url" content="https://mybench.spunwave.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mybench">
+<meta property="og:description" content="Free bench instruments for the NI myDAQ. macOS, Windows and Linux. No NI software needed.">
+<meta property="og:site_name" content="mybench">
+<meta property="og:image" content="https://mybench.spunwave.com/assets/img/app-og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="mybench: bench instruments for the NI myDAQ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="mybench">
+<meta name="twitter:description" content="Free bench instruments for the NI myDAQ. macOS, Windows and Linux. No NI software needed.">
+<meta name="twitter:image" content="https://mybench.spunwave.com/assets/img/app-og-image.png">
+<link rel="icon" href="assets/img/app-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/app-favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/app-apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(d){d.classList.add("js");try{var t=localStorage.getItem("mb-theme");if(t==="dark"||t==="light")d.setAttribute("data-theme",t)}catch(e){}try{var u=new URLSearchParams(location.search),q=u.get("theme");if(q==="dark"||q==="light")d.setAttribute("data-theme",q);if(u.get("embed")==="deck")d.setAttribute("data-embed","deck")}catch(e){}var r=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;d.classList.add(r?"reduce":"motion")})(document.documentElement)</script>
+<script src="config.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "mybench", "alternateName": ["mybench for NI myDAQ", "myDAQ software for macOS"], "description": "Free, open-source bench instruments for the NI myDAQ: oscilloscope, waveform generator, Bode and spectrum analyzers, multimeter, digital I/O, counter and data logger. Runs on macOS, Windows and Linux without NI software.", "applicationCategory": "EducationalApplication", "applicationSubCategory": "Data acquisition", "operatingSystem": "macOS, Windows, Linux", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "url": "https://mybench.spunwave.com/", "downloadUrl": "https://mybench.spunwave.com/download/", "codeRepository": "https://github.com/spunwave/mybench", "license": "https://www.gnu.org/licenses/gpl-3.0.html", "image": "https://mybench.spunwave.com/assets/img/app-og-image.png", "author": [{"@type": "Person", "name": "Martin Dolez"}, {"@type": "Person", "name": "Jean-Gabriel David"}], "publisher": {"@type": "Organization", "name": "spunwave", "url": "https://github.com/spunwave"}, "keywords": "NI myDAQ, myDAQ macOS, myDAQ Mac, ELVISmx alternative, oscilloscope, Bode plot, TU/e HomeLab"}</script>
+</head>
+<body data-root="">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="mybench, home"><img class="logo-light" src="assets/img/logo-app.svg" alt="" width="590" height="142"><img class="logo-dark" src="assets/img/logo-app-dark.svg" alt="" width="590" height="142"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="download/">Download</a>
+      <a href="web/"><span><span class="long">mybench </span>Web</span> <span class="soon">soon</span></a>
+      <a href="https://github.com/spunwave/mybench" data-repo="">GitHub</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="screen">
+      <div class="graticule" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <svg class="mark" data-draw aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="260 332 504 360">
+<g id="m" class="m" fill="none" stroke-width="72" stroke-linecap="round" stroke-linejoin="round">
+<path id="m-stroke-2" class="m-stroke-2" stroke="#3FB8E0" d="M512 488.36L512.02 486.87L512.06 485.38L512.14 483.9L512.24 482.43L512.38 480.96L512.55 479.51L512.75 478.06L512.98 476.62L513.24 475.19L513.53 473.76L513.85 472.35L514.2 470.94L514.58 469.54L514.99 468.15L515.44 466.76L515.91 465.39L516.42 464.02L516.95 462.66L517.52 461.31L518.11 459.96L518.74 458.63L519.39 457.3L520.08 455.98L520.8 454.67L524 449.53L528 443.59L532 438.1L536 433.01L540 428.3L544 423.94L548 419.9L552 416.16L556 412.7L560 409.5L564 406.53L568 403.79L572 401.24L576 398.89L580 396.71L584 394.7L588 392.83L592 391.1L596 389.5L600 388.02L604 386.65L608 385.38L612 384.21L616 383.12L620 382.11L624 381.18L628 380.32L632 379.52L636 378.78L640 378.1L644 377.46L648 376.88L652 376.33L656 375.83L660 375.36L664 374.93L668 374.54L672 374.17L676 373.82L680 373.51L684 373.21L688 372.94L692 372.69L696 372.46L700 372.24L704 372.05L708 371.86L712 371.69L716 371.53L720 371.39L724 371.25L728 371.13L728 659.13"/>
+<path id="m-stroke-1" class="m-stroke-1" stroke="#4CC38A" d="M296 656L296 486.8L296.02 485.3L296.06 483.82L296.14 482.34L296.24 480.86L296.38 479.4L296.55 477.94L296.75 476.5L296.98 475.06L297.24 473.62L297.53 472.2L297.85 470.78L298.2 469.38L298.58 467.98L298.99 466.58L299.44 465.2L299.91 463.82L300.42 462.46L300.95 461.1L301.52 459.74L302.11 458.4L302.74 457.06L303.39 455.73L304.08 454.41L304.8 453.1L308 447.97L312 442.03L316 436.53L320 431.45L324 426.73L328 422.37L332 418.33L336 414.6L340 411.14L344 407.93L348 404.97L352 402.22L356 399.68L360 397.33L364 395.15L368 393.13L372 391.27L376 389.54L380 387.94L384 386.46L388 385.09L392 383.82L396 382.65L400 381.56L404 380.55L408 379.62L412 378.76L416 377.96L420 377.22L424 376.53L428 375.9L432 375.31L436 374.77L440 374.27L444 373.8L448 373.37L452 372.97L456 372.6L460 372.26L464 371.94L468 371.65L472 371.38L476 371.13L480 370.9L484 370.68L488 370.48L492 370.3L496 370.13L500 369.97L504 369.82L508 369.69L512 369.56L512 657.56"/>
+</g>
+</svg>
+        <h1 id="hero-title">Bench instruments for the NI&nbsp;myDAQ.</h1>
+        <p class="hero-sub"><span class="nw">Free</span><span class="dot" aria-hidden="true">·</span><wbr><span class="nw">macOS, Windows, Linux</span><span class="dot dot-2" aria-hidden="true">·</span><wbr><span class="nw last">No NI software</span></p>
+        <div class="cta-row">
+          <div class="cta">
+          <a class="btn btn-primary" href="download/" data-dl>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>
+            <span data-dl-label>Download</span>
+          </a>
+          <a class="btn btn-quiet" href="download/" data-share>All systems</a>
+          </div>
+          <p class="release-line"><span class="nw" data-release="version">0.1.0</span><span class="sep rl-extra" aria-hidden="true"> · </span><span class="nw rl-extra"><span class="pill pill-beta">Beta</span> · <a class="nw" href="https://github.com/spunwave/mybench/releases" data-release="notes">What’s new</a></span></p>
+        </div>
+      </div>
+      <figure class="shot hero-shot" data-step style="--t:.2s">
+        <div class="window">
+          <picture>
+          <source media="(max-width: 600px)" srcset="assets/img/shot-scope-gen-dark-crop-1000.webp" width="1000" height="1206">
+          <img src="assets/img/shot-scope-gen-dark-1200.webp"
+               srcset="assets/img/shot-scope-gen-dark-1200.webp 1200w, assets/img/shot-scope-gen-dark-2400.webp 2400w"
+               sizes="(min-width: 1800px) 1480px, (min-width: 1320px) 1240px, 94vw" width="2400" height="1500" fetchpriority="high"
+               alt="mybench with the oscilloscope and the waveform generator side by side: a 100 Hz sine on channel 0, with RMS, frequency and peak-to-peak readouts.">
+          </picture>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="instr-title">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2 id="instr-title">The whole bench in one window.</h2>
+        <p class="lede">Run several at once. Put two side by side.</p>
+      </div>
+      <ul class="instruments" data-reveal>
+        <li><svg aria-hidden="true"><use href="assets/icons.svg#i-dmm"/></svg><h3>Multimeter</h3><p>Volts, amps, ohms, diode, continuity.</p></li>
+        <li><svg aria-hidden="true"><use href="assets/icons.svg#i-scope"/></svg><h3>Oscilloscope</h3><p>Two channels, triggers, math, FFT, XY.</p></li>
+        <li><svg aria-hidden="true"><use href="assets/icons.svg#i-gen"/></svg><h3>Waveform Generator</h3><p>Two outputs, sweeps, your own shapes.</p></li>
+        <li><svg aria-hidden="true"><use href="assets/icons.svg#i-bode"/></svg><h3>Bode Analyzer</h3><p>Gain and phase, −3&nbsp;dB marker.</p></li>
+        <li><svg aria-hidden="true"><use href="assets/icons.svg#i-dsa"/></svg><h3>Spectrum Analyzer</h3><p>Harmonics, THD, SNR, spectrogram.</p></li>
+        <li><svg aria-hidden="true"><use href="assets/icons.svg#i-dio"/></svg><h3>Digital I/O</h3><p>Eight lines, LEDs, switches, patterns.</p></li>
+        <li><svg aria-hidden="true"><use href="assets/icons.svg#i-ctr"/></svg><h3>Counter/Timer</h3><p>Frequency, period, edges, pulse trains.</p></li>
+        <li><svg aria-hidden="true"><use href="assets/icons.svg#i-log"/></svg><h3>Data Logger</h3><p>Long recordings to a text file.</p></li>
+        <li><svg aria-hidden="true"><use href="assets/icons.svg#i-aeq"/></svg><h3>Audio Equalizer</h3><p>Audio in, three bands, audio out.</p></li>
+      </ul>
+      <div class="viewer" data-reveal>
+        <div class="vtabs" role="tablist" aria-label="Screenshots">
+          <button class="vtab" type="button" role="tab" id="tab-multimeter" aria-controls="panel-multimeter" aria-selected="true" tabindex="0">Multimeter</button>
+          <button class="vtab" type="button" role="tab" id="tab-spectrum" aria-controls="panel-spectrum" aria-selected="false" tabindex="-1">Spectrum</button>
+          <button class="vtab" type="button" role="tab" id="tab-bode" aria-controls="panel-bode" aria-selected="false" tabindex="-1">Bode</button>
+          <button class="vtab" type="button" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="false" tabindex="-1">Overview</button>
+        </div>
+        <div class="vpanels">
+          <figure class="vpanel is-active has-light" role="tabpanel" id="panel-multimeter" aria-labelledby="tab-multimeter">
+            <div class="frame"><img class="shot-dark" src="assets/img/shot-dmm-dark-1200.webp" srcset="assets/img/shot-dmm-dark-1200.webp 1200w, assets/img/shot-dmm-dark-2400.webp 2400w" sizes="(min-width: 1800px) 1360px, (min-width: 1260px) 1200px, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Multimeter: a steady 1.24 V DC reading with its trend chart and statistics."><img class="shot-light" src="assets/img/shot-dmm-light-1200.webp" srcset="assets/img/shot-dmm-light-1200.webp 1200w, assets/img/shot-dmm-light-2400.webp 2400w" sizes="(min-width: 1800px) 1360px, (min-width: 1260px) 1200px, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Multimeter: a steady 1.24 V DC reading with its trend chart and statistics."></div>
+            <figcaption>Multimeter</figcaption>
+          </figure>
+          <figure class="vpanel has-light" role="tabpanel" id="panel-spectrum" aria-labelledby="tab-spectrum">
+            <div class="frame"><img class="shot-dark" src="assets/img/shot-spectrum-dark-1200.webp" srcset="assets/img/shot-spectrum-dark-1200.webp 1200w, assets/img/shot-spectrum-dark-2400.webp 2400w" sizes="(min-width: 1800px) 1360px, (min-width: 1260px) 1200px, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Spectrum analyzer: the harmonics of a 1 kHz square wave, THD 43 %."><img class="shot-light" src="assets/img/shot-spectrum-light-1200.webp" srcset="assets/img/shot-spectrum-light-1200.webp 1200w, assets/img/shot-spectrum-light-2400.webp 2400w" sizes="(min-width: 1800px) 1360px, (min-width: 1260px) 1200px, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Spectrum analyzer: the harmonics of a 1 kHz square wave, THD 43 %."></div>
+            <figcaption>Spectrum</figcaption>
+          </figure>
+          <figure class="vpanel has-light" role="tabpanel" id="panel-bode" aria-labelledby="tab-bode">
+            <div class="frame"><img class="shot-dark" src="assets/img/shot-bode-dark-1200.webp" srcset="assets/img/shot-bode-dark-1200.webp 1200w, assets/img/shot-bode-dark-2400.webp 2400w" sizes="(min-width: 1800px) 1360px, (min-width: 1260px) 1200px, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Bode analyzer after a sweep of the simulated RC low-pass: −3 dB at 1.01 kHz, phase −45°."><img class="shot-light" src="assets/img/shot-bode-light-1200.webp" srcset="assets/img/shot-bode-light-1200.webp 1200w, assets/img/shot-bode-light-2400.webp 2400w" sizes="(min-width: 1800px) 1360px, (min-width: 1260px) 1200px, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Bode analyzer after a sweep of the simulated RC low-pass: −3 dB at 1.01 kHz, phase −45°."></div>
+            <figcaption>Bode</figcaption>
+          </figure>
+          <figure class="vpanel has-light" role="tabpanel" id="panel-overview" aria-labelledby="tab-overview">
+            <div class="frame"><img class="shot-dark" src="assets/img/shot-overview-dark-1200.webp" srcset="assets/img/shot-overview-dark-1200.webp 1200w, assets/img/shot-overview-dark-2400.webp 2400w" sizes="(min-width: 1800px) 1360px, (min-width: 1260px) 1200px, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Overview page: the simulated myDAQ, recent sessions, and the multimeter, oscilloscope and generator."><img class="shot-light" src="assets/img/shot-overview-light-1200.webp" srcset="assets/img/shot-overview-light-1200.webp 1200w, assets/img/shot-overview-light-2400.webp 2400w" sizes="(min-width: 1800px) 1360px, (min-width: 1260px) 1200px, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Overview page: the simulated myDAQ, recent sessions, and the multimeter, oscilloscope and generator."></div>
+            <figcaption>Overview</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="sim-title">
+    <div class="wrap split">
+      <div data-reveal>
+        <h2 id="sim-title">No myDAQ? Practise anyway.</h2>
+        <p class="lede">A simulated myDAQ is built in, with a test circuit wired to it. Every instrument works.</p>
+        <svg class="wiring" viewBox="0 0 420 112" data-draw role="img" aria-label="The simulated circuit: AO 0 goes straight to AI 0, and through an RC low-pass at 1 kHz to AI 1.">
+          <rect class="sw-ao0" x="0" y="24" width="8" height="8" rx="2"/><text x="14" y="32">AO 0</text>
+          <text class="t2" x="205" y="18" text-anchor="middle">direct</text>
+          <path class="wire" d="M60 28H352" data-sweep="520" data-ease="in"/>
+          <path class="arrow" d="M350 23.5 358 28 350 32.5z" data-after/>
+          <rect class="sw-ai0" x="368" y="24" width="8" height="8" rx="2"/><text x="382" y="32">AI 0</text>
+          <rect class="sw-ao0" x="0" y="80" width="8" height="8" rx="2"/><text x="14" y="88">AO 0</text>
+          <path class="wire" d="M60 84H158" data-sweep="200"/>
+          <rect class="rc" x="158" y="69" width="104" height="30" rx="6"/><text x="210" y="88.5" text-anchor="middle">RC 1 kHz</text>
+          <path class="wire" d="M262 84H352" data-sweep="200" data-ease="out"/>
+          <path class="arrow" d="M350 79.5 358 84 350 88.5z" data-after/>
+          <rect class="sw-ai1" x="368" y="80" width="8" height="8" rx="2"/><text x="382" y="88">AI 1</text>
+        </svg>
+        <p><code class="cmd">mybench --simulated</code></p>
+      </div>
+      <figure class="shot has-light" data-reveal style="--d:.1s">
+        <div class="frame"><img class="shot-dark" src="assets/img/shot-bode-dark-1200.webp" srcset="assets/img/shot-bode-dark-1200.webp 1200w, assets/img/shot-bode-dark-2400.webp 2400w" sizes="(min-width: 900px) 56vw, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Bode analyzer after a sweep of the simulated RC low-pass: −3 dB at 1.01 kHz, phase −45°."><img class="shot-light" src="assets/img/shot-bode-light-1200.webp" srcset="assets/img/shot-bode-light-1200.webp 1200w, assets/img/shot-bode-light-2400.webp 2400w" sizes="(min-width: 900px) 56vw, 94vw" width="1200" height="750" loading="lazy" decoding="async" alt="Bode analyzer after a sweep of the simulated RC low-pass: −3 dB at 1.01 kHz, phase −45°."></div>
+        <figcaption>A Bode sweep of the simulated RC: −3&nbsp;dB at 1.01&nbsp;kHz.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="usb-title">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2 id="usb-title">Talks to the myDAQ directly.</h2>
+        <p class="lede">Over USB. No NI software.</p>
+      </div>
+      <ul class="systems" data-reveal>
+        <li><h3>macOS<small>14+ · Apple Silicon &amp; Intel</small></h3><p>Nothing to set up.</p><span class="status ok">Tested with a myDAQ</span></li>
+        <li><h3>Linux<small>Flatpak · AppImage · .deb · .rpm</small></h3><p>One USB rule. The .deb and .rpm add it for you.</p><span class="status ok">Tested with a myDAQ</span></li>
+        <li><h3>Windows<small>10 / 11 · x64</small></h3><p>No driver setup. Works alongside NI ELVISmx.</p><span class="status beta deck-hide">Beta</span></li>
+      </ul>
+      <p class="footnote" data-reveal>The myDAQ needs a current NI firmware. A myDAQ that was used once with a recent NI ELVISmx or NI-DAQmx has it. <a href="install/">Install</a></p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="get-title">
+    <div class="screen">
+      <div class="graticule" aria-hidden="true"></div>
+      <svg class="mark" data-draw aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="260 332 504 360">
+<g class="m" fill="none" stroke-width="72" stroke-linecap="round" stroke-linejoin="round">
+<path class="m-stroke-2" stroke="#3FB8E0" d="M512 488.36L512.02 486.87L512.06 485.38L512.14 483.9L512.24 482.43L512.38 480.96L512.55 479.51L512.75 478.06L512.98 476.62L513.24 475.19L513.53 473.76L513.85 472.35L514.2 470.94L514.58 469.54L514.99 468.15L515.44 466.76L515.91 465.39L516.42 464.02L516.95 462.66L517.52 461.31L518.11 459.96L518.74 458.63L519.39 457.3L520.08 455.98L520.8 454.67L524 449.53L528 443.59L532 438.1L536 433.01L540 428.3L544 423.94L548 419.9L552 416.16L556 412.7L560 409.5L564 406.53L568 403.79L572 401.24L576 398.89L580 396.71L584 394.7L588 392.83L592 391.1L596 389.5L600 388.02L604 386.65L608 385.38L612 384.21L616 383.12L620 382.11L624 381.18L628 380.32L632 379.52L636 378.78L640 378.1L644 377.46L648 376.88L652 376.33L656 375.83L660 375.36L664 374.93L668 374.54L672 374.17L676 373.82L680 373.51L684 373.21L688 372.94L692 372.69L696 372.46L700 372.24L704 372.05L708 371.86L712 371.69L716 371.53L720 371.39L724 371.25L728 371.13L728 659.13"/>
+<path class="m-stroke-1" stroke="#4CC38A" d="M296 656L296 486.8L296.02 485.3L296.06 483.82L296.14 482.34L296.24 480.86L296.38 479.4L296.55 477.94L296.75 476.5L296.98 475.06L297.24 473.62L297.53 472.2L297.85 470.78L298.2 469.38L298.58 467.98L298.99 466.58L299.44 465.2L299.91 463.82L300.42 462.46L300.95 461.1L301.52 459.74L302.11 458.4L302.74 457.06L303.39 455.73L304.08 454.41L304.8 453.1L308 447.97L312 442.03L316 436.53L320 431.45L324 426.73L328 422.37L332 418.33L336 414.6L340 411.14L344 407.93L348 404.97L352 402.22L356 399.68L360 397.33L364 395.15L368 393.13L372 391.27L376 389.54L380 387.94L384 386.46L388 385.09L392 383.82L396 382.65L400 381.56L404 380.55L408 379.62L412 378.76L416 377.96L420 377.22L424 376.53L428 375.9L432 375.31L436 374.77L440 374.27L444 373.8L448 373.37L452 372.97L456 372.6L460 372.26L464 371.94L468 371.65L472 371.38L476 371.13L480 370.9L484 370.68L488 370.48L492 370.3L496 370.13L500 369.97L504 369.82L508 369.69L512 369.56L512 657.56"/>
+</g>
+</svg>
+      <h2 id="get-title">Get mybench.</h2>
+      <p>Free.<span class="deck-hide"> In beta, with a few students testing it.</span> <a class="nw" href="https://github.com/spunwave/mybench/issues" data-repo="/issues">Tell us what breaks.</a></p>
+      <div class="cta">
+        <a class="btn btn-primary" href="download/" data-dl>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>
+          <span data-dl-label>Download</span>
+        </a>
+        <a class="btn btn-quiet" href="download/" data-share>All systems</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="mybench, home"><img class="logo-light" src="assets/img/logo-app.svg" alt="" width="590" height="142"><img class="logo-dark" src="assets/img/logo-app-dark.svg" alt="" width="590" height="142"></a>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="download/">Download</a></li>
+        <li><a href="install/">Install</a></li>
+        <li><a href="web/">mybench Web</a></li>
+        <li><a href="https://github.com/spunwave/mybench" data-repo="">GitHub</a></li>
+        <li><a href="https://github.com/spunwave/mybench/issues" data-repo="/issues">Report a bug</a></li>
+      </ul>
+    </nav>
+    <p class="legal">mybench is free software under the GPL-3.0. It is an independent project, not affiliated with or endorsed by NI (Emerson). “NI”, “myDAQ” and “ELVIS” are trademarks of their owners and are used only to describe compatibility.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install mybench</title>
+<meta name="description" content="Install mybench on macOS, Windows or Linux, and give it access to the NI myDAQ.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F4F5F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17181B" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://mybench.spunwave.com/install/">
+<meta property="og:url" content="https://mybench.spunwave.com/install/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Install mybench">
+<meta property="og:description" content="Free bench instruments for the NI myDAQ. macOS, Windows and Linux.">
+<meta property="og:site_name" content="mybench">
+<meta property="og:image" content="https://mybench.spunwave.com/assets/img/app-og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="mybench: bench instruments for the NI myDAQ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Install mybench">
+<meta name="twitter:description" content="Free bench instruments for the NI myDAQ. macOS, Windows and Linux.">
+<meta name="twitter:image" content="https://mybench.spunwave.com/assets/img/app-og-image.png">
+<link rel="icon" href="../assets/img/app-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/app-favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/app-apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="preload" href="../assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<script>(function(d){d.classList.add("js");try{var t=localStorage.getItem("mb-theme");if(t==="dark"||t==="light")d.setAttribute("data-theme",t)}catch(e){}try{var u=new URLSearchParams(location.search),q=u.get("theme");if(q==="dark"||q==="light")d.setAttribute("data-theme",q);if(u.get("embed")==="deck")d.setAttribute("data-embed","deck")}catch(e){}var r=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;d.classList.add(r?"reduce":"motion")})(document.documentElement)</script>
+<script src="../config.js" defer></script>
+<script src="../assets/site.js" defer></script>
+</head>
+<body data-root="../">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="mybench, home"><img class="logo-light" src="../assets/img/logo-app.svg" alt="" width="590" height="142"><img class="logo-dark" src="../assets/img/logo-app-dark.svg" alt="" width="590" height="142"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="../download/">Download</a>
+      <a href="../web/"><span><span class="long">mybench </span>Web</span> <span class="soon">soon</span></a>
+      <a href="https://github.com/spunwave/mybench" data-repo="">GitHub</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap narrow">
+    <section class="page-hero" aria-labelledby="in-title">
+      <h1 id="in-title">Install mybench</h1>
+      <p class="lede">No NI software needed. Each system needs one thing so mybench can reach the myDAQ.</p>
+      <p class="jump"><a href="#macos">macOS</a><a href="#windows">Windows</a><a href="#linux">Linux</a><a href="#not-found">myDAQ not found</a></p>
+    </section>
+
+    <section class="sys" id="macos" aria-labelledby="h-mac">
+      <div class="sys-head"><h2 id="h-mac">macOS</h2><span class="you">macOS 14+ · Apple Silicon &amp; Intel</span></div>
+      <ol class="steps">
+        <li>Open the .dmg and drag <strong>mybench</strong> to Applications.</li>
+        <li>The app is not notarized yet, so macOS blocks the first launch. Try to open it, then go to <strong>System Settings → Privacy &amp; Security</strong> and click <strong>Open Anyway</strong>. On macOS 14, Control-click the app and choose <strong>Open</strong>.
+          <p class="alt">Or in Terminal:</p>
+          <pre><code>xattr -dr com.apple.quarantine /Applications/mybench.app</code></pre></li>
+        <li>Plug in the myDAQ. No driver, no permission prompt.</li>
+      </ol>
+    </section>
+
+    <section class="sys" id="windows" aria-labelledby="h-win">
+      <div class="sys-head"><h2 id="h-win">Windows</h2><span class="status beta">Beta</span><span class="you">Windows 10 / 11 · x64</span></div>
+      <ol class="steps">
+        <li>Run the installer. If SmartScreen warns about an unknown publisher: <strong>More info → Run anyway</strong>.</li>
+        <li>Plug in the myDAQ and start mybench. No Zadig, no Device Manager, no reboot.</li>
+      </ol>
+      <p class="aside"><strong>Works alongside NI ELVISmx.</strong> The installer adds a small service, <strong>mybench USB access</strong>. While mybench runs it borrows the myDAQ through Windows’ own WinUSB driver; when mybench closes, the myDAQ goes back to NI’s driver, so NI MAX, ELVISmx and LabVIEW have it again. If an NI program is using the myDAQ, mybench waits for it to close, or click <strong>Use in mybench</strong>. The portable .zip has no service: <strong>Set Up myDAQ</strong> asks for administrator rights once, and the myDAQ then stays on WinUSB until you run <code>bin\mybench-usb-setup release</code> from an administrator prompt.</p>
+    </section>
+
+    <section class="sys" id="linux" aria-labelledby="h-linux">
+      <div class="sys-head"><h2 id="h-linux">Linux</h2><span class="you">x86_64</span></div>
+      <ol class="steps">
+        <li>Install one package:
+          <pre><code>sudo apt install ./mybench_&lt;version&gt;_amd64.deb      # Debian, Ubuntu 25.10+
+sudo dnf install ./mybench-&lt;version&gt;-1.x86_64.rpm   # Fedora 42+
+flatpak install --user mybench-&lt;version&gt;-linux-x86_64.flatpak
+chmod +x mybench-&lt;version&gt;-linux-x86_64.AppImage   # then run it</code></pre>
+          <p class="alt">The .deb and .rpm need Qt 6.9 or newer from your distribution. The Flatpak fetches the KDE runtime from Flathub if it is missing.</p></li>
+        <li>USB access. The .deb and .rpm install a udev rule for you: just re-plug the myDAQ. With the Flatpak or AppImage, add the rule once:
+          <pre class="wrap"><code>echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="3923", ATTR{idProduct}=="755b", MODE="0660", GROUP="plugdev", TAG+="uaccess"' \
+  | sudo tee /etc/udev/rules.d/60-mybench-mydaq.rules
+sudo udevadm control --reload-rules &amp;&amp; sudo udevadm trigger</code></pre>
+          <p class="alt">Then re-plug the myDAQ. On a desktop session that is all; without systemd-logind, also add yourself to <code>plugdev</code> and log in again. Fedora has no <code>plugdev</code> group and doesn’t need one.</p></li>
+      </ol>
+    </section>
+
+    <section class="sys" id="not-found" aria-labelledby="h-nf">
+      <div class="sys-head"><h2 id="h-nf">myDAQ not found?</h2></div>
+      <p class="sys-note">A myDAQ that is plugged in but can’t be opened shows as <strong>Not available</strong>, with the reason.</p>
+      <dl class="causes">
+        <dt>With NI software</dt><dd>Windows: an NI program is using the myDAQ. Close it, or click <strong>Use in mybench</strong>.</dd>
+        <dt>Needs setup</dt><dd>Windows: the mybench USB service is not running. Reinstall mybench, or click <strong>Set Up myDAQ</strong>.</dd>
+        <dt>No permission</dt><dd>Linux: add the udev rule (above).</dd>
+        <dt>In use</dt><dd>Another program has it open. Close it, then Rescan.</dd>
+        <dt>Open failed</dt><dd>Just plugged in, or a hub or cable. mybench retries; re-plug if it stays.</dd>
+      </dl>
+      <p class="aside"><strong>Firmware.</strong> The myDAQ needs a current NI firmware. A myDAQ that was used once with a recent NI ELVISmx or NI-DAQmx has it. With an older one, the multimeter and digital I/O work, but analog input and output don’t until the myDAQ has been connected once to a computer with NI’s software. mybench never writes to the device.</p>
+      <p class="aside"><strong>No myDAQ at all?</strong> mybench opens a simulated one. Every instrument works.</p>
+    </section>
+  </div>
+  <div aria-hidden="true" style="height: clamp(48px, 8vw, 112px)"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="mybench, home"><img class="logo-light" src="../assets/img/logo-app.svg" alt="" width="590" height="142"><img class="logo-dark" src="../assets/img/logo-app-dark.svg" alt="" width="590" height="142"></a>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="../download/">Download</a></li>
+        <li><a href="./">Install</a></li>
+        <li><a href="../web/">mybench Web</a></li>
+        <li><a href="https://github.com/spunwave/mybench" data-repo="">GitHub</a></li>
+        <li><a href="https://github.com/spunwave/mybench/issues" data-repo="/issues">Report a bug</a></li>
+      </ul>
+    </nav>
+    <p class="legal">mybench is free software under the GPL-3.0. It is an independent project, not affiliated with or endorsed by NI (Emerson). “NI”, “myDAQ” and “ELVIS” are trademarks of their owners and are used only to describe compatibility.</p>
+  </div>
+</footer>
+</body>
+</html>
