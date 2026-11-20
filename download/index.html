@@ -32,14 +32,14 @@
 <script>(function(d){d.classList.add("js");try{var t=localStorage.getItem("mb-theme");if(t==="dark"||t==="light")d.setAttribute("data-theme",t)}catch(e){}try{var u=new URLSearchParams(location.search),q=u.get("theme");if(q==="dark"||q==="light")d.setAttribute("data-theme",q);if(u.get("embed")==="deck")d.setAttribute("data-embed","deck")}catch(e){}var r=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;d.classList.add(r?"reduce":"motion")})(document.documentElement)</script>
 <script src="../config.js" defer></script>
 <script src="../assets/site.js" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "mybench", "alternateName": ["mybench for NI myDAQ", "myDAQ software for macOS"], "description": "Free, open-source bench instruments for the NI myDAQ: oscilloscope, waveform generator, Bode and spectrum analyzers, multimeter, digital I/O, counter and data logger. Runs on macOS, Windows and Linux without NI software.", "applicationCategory": "EducationalApplication", "applicationSubCategory": "Data acquisition", "operatingSystem": "macOS, Windows, Linux", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "url": "https://mybench.spunwave.com/", "downloadUrl": "https://mybench.spunwave.com/download/", "codeRepository": "https://github.com/spunwave/mybench", "license": "https://www.gnu.org/licenses/gpl-3.0.html", "image": "https://mybench.spunwave.com/assets/img/app-og-image.png", "author": [{"@type": "Person", "name": "Martin Dolez"}, {"@type": "Person", "name": "Jean-Gabriel David"}], "publisher": {"@type": "Organization", "name": "spunwave", "url": "https://github.com/spunwave"}, "keywords": "NI myDAQ, myDAQ macOS, myDAQ Mac, ELVISmx alternative, oscilloscope, Bode plot, TU/e HomeLab"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "mybench", "alternateName": ["mybench for NI myDAQ", "myDAQ software for macOS"], "description": "Free, open-source bench instruments for the NI myDAQ: oscilloscope, waveform generator, Bode and spectrum analyzers, multimeter, digital I/O, counter and data logger. Runs on macOS, Windows and Linux without NI software.", "applicationCategory": "EducationalApplication", "applicationSubCategory": "Data acquisition", "operatingSystem": "macOS, Windows, Linux", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "url": "https://mybench.spunwave.com/", "downloadUrl": "https://mybench.spunwave.com/download/", "codeRepository": "https://github.com/spunwave/mybench", "license": "https://www.gnu.org/licenses/gpl-3.0.html", "image": "https://mybench.spunwave.com/assets/img/app-og-image.png", "author": {"@type": "Organization", "name": "spunwave", "url": "https://spunwave.com"}, "publisher": {"@type": "Organization", "name": "spunwave", "url": "https://spunwave.com"}, "keywords": "NI myDAQ, myDAQ macOS, myDAQ Mac, ELVISmx alternative, oscilloscope, Bode plot, TU/e HomeLab"}</script>
 </head>
 <body data-root="../">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="../" aria-label="mybench, home"><img class="logo-light" src="../assets/img/logo-app.svg" alt="" width="590" height="142"><img class="logo-dark" src="../assets/img/logo-app-dark.svg" alt="" width="590" height="142"></a>
+    <div class="brand-wrap"><a class="brand" href="../" aria-label="mybench, home"><img class="logo-light" src="../assets/img/logo-app.svg" alt="" width="590" height="142"><img class="logo-dark" src="../assets/img/logo-app-dark.svg" alt="" width="590" height="142"></a><a class="by-spunwave" href="https://spunwave.com"><img class="logo-light" src="../assets/img/by-spunwave.svg" alt="a spunwave project" width="165" height="18"><img class="logo-dark" src="../assets/img/by-spunwave-dark.svg" alt="a spunwave project" width="165" height="18"></a></div>
     <nav class="nav" aria-label="Main">
       <a href="./" aria-current="page">Download</a>
       <a href="../web/"><span><span class="long">mybench </span>Web</span> <span class="soon">soon</span></a>
@@ -110,6 +110,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <a class="brand" href="../" aria-label="mybench, home"><img class="logo-light" src="../assets/img/logo-app.svg" alt="" width="590" height="142"><img class="logo-dark" src="../assets/img/logo-app-dark.svg" alt="" width="590" height="142"></a>
+    <a class="by-spunwave" href="https://spunwave.com"><img class="logo-light" src="../assets/img/by-spunwave.svg" alt="a spunwave project" width="165" height="18"><img class="logo-dark" src="../assets/img/by-spunwave-dark.svg" alt="a spunwave project" width="165" height="18"></a>
     <nav aria-label="Footer">
       <ul>
         <li><a href="./">Download</a></li>
@@ -117,9 +118,10 @@
         <li><a href="../web/">mybench Web</a></li>
         <li><a href="https://github.com/spunwave/mybench" data-repo="">GitHub</a></li>
         <li><a href="https://github.com/spunwave/mybench/issues" data-repo="/issues">Report a bug</a></li>
+        <li><a href="mailto:contact@spunwave.com">Contact</a></li>
       </ul>
     </nav>
-    <p class="legal">mybench is free software under the GPL-3.0. It is an independent project, not affiliated with or endorsed by NI (Emerson). “NI”, “myDAQ” and “ELVIS” are trademarks of their owners and are used only to describe compatibility.</p>
+    <p class="legal">mybench is a spunwave project and free software under the GPL-3.0. It is not affiliated with or endorsed by NI (Emerson). “NI”, “myDAQ” and “ELVIS” are trademarks of their owners and are used only to describe compatibility. © 2026 spunwave.</p>
   </div>
 </footer>
 </body>

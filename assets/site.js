@@ -171,6 +171,35 @@
     svg.classList.add("drawn");
   }
 
+  function swMorph(mark) {
+    var host = document.getElementById("sw-morph");
+    if (!host || !window.spunwave || !mark.matches(".hero .mark")) return false;
+    var m = window.spunwave.morph(host), svg = host.querySelector("svg"), g = svg.firstElementChild;
+    var fit = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    fit.setAttribute("transform", "translate(512 514.3) scale(2.88) translate(-120 -120)");
+    svg.setAttribute("viewBox", "260 332 504 360");
+    svg.insertBefore(fit, g); fit.appendChild(g);
+
+    var HOLD = 1.6, PACE = 0.8, ARRIVE = 2.5, raf = 0, timer = 0;
+    function play() {
+      cancelAnimationFrame(raf); clearTimeout(timer);
+      host.classList.remove("done"); host.classList.add("on"); mark.classList.add("sw-hide");
+      var t0 = performance.now();
+      (function step(now) {
+        var t = Math.max(0, (now - t0) / 1000 - HOLD) * PACE;
+        if (t >= ARRIVE) {
+          m.at("mb", 0); mark.classList.add("sw-shown"); mark.classList.remove("sw-hide"); host.classList.add("done");
+          timer = setTimeout(function () { host.classList.remove("on"); }, 450);
+          return;
+        }
+        m.at("morph", t); raf = requestAnimationFrame(step);
+      })(t0);
+    }
+    play();
+    mark.addEventListener("click", play);
+    return true;
+  }
+
   function draw(svg, at) {
     if (svg.querySelector(".letter")) drawLockup(svg, at);
     else if (svg.querySelector('[class$="-stroke-1"]')) { drawMark(svg, at); svg.classList.add("drawn"); }
@@ -185,7 +214,7 @@
       requestAnimationFrame(function () {
         if (screen) screen.classList.add("on");
         var lock = hero.querySelector("svg[data-draw]");
-        if (lock) draw(lock, 150);
+        if (lock && !swMorph(lock)) draw(lock, 150);
         hero.classList.add("play");
       });
     }
